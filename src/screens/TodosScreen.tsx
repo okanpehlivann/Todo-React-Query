@@ -15,10 +15,9 @@ import {
   useTodoListData,
 } from '../hooks/useTodoListData';
 import {useNavigation} from '@react-navigation/native';
-import {NativeStackScreenProps} from '@react-navigation/native-stack';
 
 function TodosScreen(): JSX.Element {
-  const {navigation} = useNavigation<NativeStackScreenProps<any>>();
+  const navigation = useNavigation();
 
   const [searchText, setSearchText] = useState<string>('');
   let myTextInput = React.createRef<any>();
