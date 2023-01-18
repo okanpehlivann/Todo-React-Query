@@ -114,11 +114,11 @@ function TodosScreen(): JSX.Element {
         })}
 
         <TouchableOpacity style={{margin: 20}} onPress={goToParallelQuery}>
-          <Text>Go To Parallel Query Page</Text>
+          <Text>Go To Parallel Query Pageeeee</Text>
         </TouchableOpacity>
 
         <TouchableOpacity style={{margin: 20}} onPress={goToDynamicQuery}>
-          <Text>Go To Dynamic Query Page</Text>
+          <Text>Go To Dynamic Query Pageeee</Text>
         </TouchableOpacity>
 
         <TouchableOpacity style={{margin: 20}} onPress={goToDependentQuery}>
