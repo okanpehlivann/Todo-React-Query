@@ -1,14 +1,14 @@
 import React from 'react';
 import {SafeAreaView, Text, View} from 'react-native';
 import {useQuery} from 'react-query';
-import axios from 'axios';
+import {request} from '../utils/axios-utils';
 
 const fetchTodoList = () => {
-  return axios.get('http://localhost:4000/todos');
+  return request({url: `/todos`});
 };
 
 const fetchFriends = () => {
-  return axios.get('http://localhost:4000/friends');
+  return request({url: `/friends`});
 };
 
 function ParallelQueriesScreen(): JSX.Element {

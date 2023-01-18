@@ -1,10 +1,10 @@
 import {View, Text, SafeAreaView, TouchableOpacity} from 'react-native';
 import React, {useState} from 'react';
-import axios from 'axios';
 import {useQuery} from 'react-query';
+import {request} from '../utils/axios-utils';
 
 const fetchColors = (pageNumber: number) => {
-  return axios.get(`http://localhost:4000/colors?_limit=2&_page=${pageNumber}`);
+  return request({url: `/colors?_limit=2&_page=${pageNumber}`});
 };
 
 function PaginatedQueriesScreen(): JSX.Element {

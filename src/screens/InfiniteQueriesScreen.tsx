@@ -1,10 +1,10 @@
 import {View, Text, SafeAreaView, TouchableOpacity} from 'react-native';
 import React from 'react';
-import axios from 'axios';
 import {useInfiniteQuery} from 'react-query';
+import {request} from '../utils/axios-utils';
 
 const fetchColors = ({pageParam = 1}) => {
-  return axios.get(`http://localhost:4000/colors?_limit=2&_page=${pageParam}`);
+  return request({url: `/colors?_limit=2&_page=${pageParam}`});
 };
 
 function InfiniteQueriesScreen(): JSX.Element {

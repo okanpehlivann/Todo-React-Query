@@ -1,10 +1,10 @@
 import React from 'react';
 import {SafeAreaView, Text, View} from 'react-native';
 import {useQueries} from 'react-query';
-import axios from 'axios';
+import {request} from '../utils/axios-utils';
 
 const fetchTodo = (todoId: number) => {
-  return axios.get(`http://localhost:4000/todos/${todoId}`);
+  return request({url: `/todos/${todoId}`});
 };
 
 function DynamicQueryScreen({route}: any): JSX.Element {

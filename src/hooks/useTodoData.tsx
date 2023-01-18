@@ -1,6 +1,6 @@
 import {QueryFunctionContext, useQuery, useQueryClient} from 'react-query';
-import axios from 'axios';
 import {TodoType} from './useTodoListData';
+import {request} from '../utils/axios-utils';
 
 export type TUseTodoData = {
   todoId: number;
@@ -11,7 +11,7 @@ const fetchTodo = ({
 }: QueryFunctionContext<[number, string | null | undefined]>) => {
   const todoId = queryKey[1];
 
-  return axios.get<TodoType>(`http://localhost:4000/todos/${todoId}`);
+  return request({url: `/todos/${todoId}`});
 };
 
 export const useTodoData = ({todoId}: TUseTodoData) => {

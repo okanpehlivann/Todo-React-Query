@@ -1,14 +1,14 @@
-import axios from 'axios';
 import React from 'react';
 import {SafeAreaView, Text, View} from 'react-native';
 import {useQuery} from 'react-query';
+import {request} from '../utils/axios-utils';
 
 const fetchUserByEmail = (email: string) => {
-  return axios.get(`http://localhost:4000/users/${email}`);
+  return request({url: `/users/${email}`});
 };
 
 const fetchCoursesByChannelId = (channelId: string) => {
-  return axios.get(`http://localhost:4000/channels/${channelId}`);
+  return request({url: `/channels/${channelId}`});
 };
 
 function DependentQueries({route}): JSX.Element {
