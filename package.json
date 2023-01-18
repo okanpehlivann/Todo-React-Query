@@ -12,6 +12,7 @@
     "serve-json": "json-server --watch db.json --port 4000"
   },
   "dependencies": {
+    "@react-navigation/core": "^6.4.6",
     "@react-navigation/native": "^6.1.2",
     "@react-navigation/native-stack": "^6.9.8",
     "axios": "^1.2.2",

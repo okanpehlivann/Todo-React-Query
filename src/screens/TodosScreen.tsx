@@ -6,7 +6,6 @@ import {
   TouchableOpacity,
   TextInput,
   StyleSheet,
-  TextInputProps,
 } from 'react-native';
 import React, {useState} from 'react';
 import TodoCard from '../components/TodoCard';
@@ -16,9 +15,11 @@ import {
   useTodoListData,
 } from '../hooks/useTodoListData';
 import {useNavigation} from '@react-navigation/native';
+import {NativeStackScreenProps} from '@react-navigation/native-stack';
 
 function TodosScreen(): JSX.Element {
-  const navigation = useNavigation();
+  const {navigation} = useNavigation<NativeStackScreenProps<any>>();
+
   const [searchText, setSearchText] = useState<string>('');
   let myTextInput = React.createRef<any>();
 
