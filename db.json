@@ -1,0 +1,76 @@
+{
+  "todos": [
+    {
+      "id": 1,
+      "title": "Ekmek Al"
+    },
+    {
+      "id": 2,
+      "title": "Kitap Al"
+    },
+    {
+      "id": 3,
+      "title": "Spor Yap"
+    }
+  ],
+  "friends": [
+    {
+      "id": 1,
+      "name": "Okan Pehlivan"
+    },
+    {
+      "id": 2,
+      "name": "Mustafa Aksoy"
+    },
+    {
+      "id": 3,
+      "name": "Serdar Güler"
+    }
+  ],
+  "users": [
+    {
+      "id": "vishwas@gmail.com",
+      "channelId": "code"
+    }
+  ],
+  "channels": [
+    {
+      "id": "code",
+      "courses": ["react", "vue", "angular"]
+    }
+  ],
+  "colors": [
+    {
+      "id": 1,
+      "label": "red"
+    },
+    {
+      "id": 2,
+      "label": "blue"
+    },
+    {
+      "id": 3,
+      "label": "green"
+    },
+    {
+      "id": 4,
+      "label": "yellow"
+    },
+    {
+      "id": 5,
+      "label": "black"
+    },
+    {
+      "id": 6,
+      "label": "orange"
+    },
+    {
+      "id": 7,
+      "label": "purple"
+    },
+    {
+      "id": 8,
+      "label": "black"
+    }
+  ]
+}
