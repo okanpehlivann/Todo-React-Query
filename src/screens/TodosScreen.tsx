@@ -7,7 +7,7 @@ import {
   TextInput,
   StyleSheet,
 } from 'react-native';
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import TodoCard from '../components/TodoCard';
 import {
   TodoType,
@@ -15,6 +15,9 @@ import {
   useTodoListData,
 } from '../hooks/useTodoListData';
 import {useNavigation} from '@react-navigation/native';
+import {NativeModules, NativeEventEmitter} from 'react-native';
+
+const CounterEvents = new NativeEventEmitter(NativeModules.Counter);
 
 function TodosScreen(): JSX.Element {
   const navigation = useNavigation();
@@ -34,6 +37,20 @@ function TodosScreen(): JSX.Element {
     onSuccess,
     onError,
   });
+
+  useEffect(() => {
+    CounterEvents.addListener('onIncrement', (result: any) => {
+      console.log('onIncrement Received => ', result);
+    });
+
+    CounterEvents.addListener('onDecrement', (result: any) => {
+      console.log('onDecrement Received => ', result);
+    });
+
+    return () => {
+      CounterEvents.removeAllListeners('onIncrement');
+    };
+  }, []);
 
   const {mutate: addTodoInput} = useAddTodoData();
 
@@ -88,6 +105,21 @@ function TodosScreen(): JSX.Element {
     myTextInput?.current.clear();
   }
 
+  async function decrease() {
+    try {
+      var result = await NativeModules.Counter.decrement();
+      console.log(result);
+    } catch (error: any) {
+      console.log(error?.message, error?.code);
+    }
+  }
+
+  function increase() {
+    NativeModules.Counter.increment((res: any) => {
+      console.log(res);
+    });
+  }
+
   return (
     <SafeAreaView style={{flex: 1, backgroundColor: 'lightblue'}}>
       <ScrollView style={{flex: 1}}>
@@ -112,6 +144,14 @@ function TodosScreen(): JSX.Element {
             </TouchableOpacity>
           );
         })}
+
+        <TouchableOpacity style={{margin: 20}} onPress={increase}>
+          <Text>Increase Count</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity style={{margin: 20}} onPress={decrease}>
+          <Text>Decrease Count</Text>
+        </TouchableOpacity>
 
         <TouchableOpacity style={{margin: 20}} onPress={goToParallelQuery}>
           <Text>Go To Parallel Query Pageeeee</Text>

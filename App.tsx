@@ -1,7 +1,7 @@
 import React from 'react';
 import {QueryClientProvider, QueryClient} from 'react-query';
 import {StyleSheet} from 'react-native';
-import {NavigationContainer, useNavigation} from '@react-navigation/native';
+import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import TodosScreen from './src/screens/TodosScreen';
 import TodoScreen from './src/screens/TodoScreen';
