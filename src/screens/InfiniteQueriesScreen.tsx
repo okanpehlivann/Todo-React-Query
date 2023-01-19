@@ -14,7 +14,7 @@ function InfiniteQueriesScreen(): JSX.Element {
         if (pages.length < 4) {
           return pages.length + 1;
         } else {
-          return undefined;
+          return null;
         }
       },
     });

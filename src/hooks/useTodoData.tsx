@@ -8,7 +8,7 @@ export type TUseTodoData = {
 
 const fetchTodo = ({
   queryKey,
-}: QueryFunctionContext<[number, string | null | undefined]>) => {
+}: QueryFunctionContext<[number, string | null]>) => {
   const todoId = queryKey[1];
 
   return request({url: `/todos/${todoId}`});
@@ -28,7 +28,7 @@ export const useTodoData = ({todoId}: TUseTodoData) => {
           data: todo,
         };
       } else {
-        return undefined;
+        return null;
       }
     },
   });
